@@ -9,7 +9,7 @@ def error(message):
 class BoilerPlate:
     def __init__(self, path):
         if not os.path.exists(path):
-           error("Path not found!")
+           self.__make_dir_not_exists(path)
 
         self.path = path
 
