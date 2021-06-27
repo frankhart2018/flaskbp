@@ -53,6 +53,7 @@ setup(
             "files/index.html",
             "files/jquery.min.js",
             "files/main.js",
+            "files/utils.js",
             "files/styles.css",
             "files/sweetalert.min.js",
         ]

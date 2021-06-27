@@ -62,6 +62,9 @@ class BoilerPlate:
     def __make_main_js(self, static_js_dir):
         self.__get_file_and_write(dir_path=static_js_dir, filename="main.js")
 
+    def __make_utils_js(self, static_js_dir):
+        self.__get_file_and_write(dir_path=static_js_dir, filename="utils.js")
+
     def __make_jquery_min_js(self, static_js_dir):
         self.__get_file_and_write(dir_path=static_js_dir, filename="jquery.min.js")
 
@@ -72,6 +75,7 @@ class BoilerPlate:
         static_js_dir = os.path.join(self.path, "static/js")
 
         self.__make_main_js(static_js_dir=static_js_dir)
+        self.__make_utils_js(static_js_dir=static_js_dir)
         self.__make_jquery_min_js(static_js_dir=static_js_dir)
         self.__make_sweetalert_min_js(static_js_dir=static_js_dir)
 
