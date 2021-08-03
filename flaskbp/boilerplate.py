@@ -1,5 +1,6 @@
 import os
 import pkgutil
+import urllib.request
 
 
 def error(message):
@@ -63,7 +64,14 @@ class BoilerPlate:
         self.__get_file_and_write(dir_path=static_js_dir, filename="main.js")
 
     def __make_utils_js(self, static_js_dir):
-        self.__get_file_and_write(dir_path=static_js_dir, filename="utils.js")
+        print("Fetching latest fastQuery")
+        fastquery_url = "https://raw.githubusercontent.com/frankhart2018/fastQuery/master/fastquery.js"
+        with urllib.request.urlopen(fastquery_url) as f:
+            fastquery_js = f.read().decode('utf-8')
+
+        file_path = os.path.join(static_js_dir, "fastquery.js")
+        with open(file_path, "w") as file:
+            file.write(fastquery_js)
 
     def __make_jquery_min_js(self, static_js_dir):
         self.__get_file_and_write(dir_path=static_js_dir, filename="jquery.min.js")
